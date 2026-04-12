@@ -293,6 +293,8 @@ footer{background:var(--ink);color:#94a3b8;padding:72px 0 28px;margin-top:auto}
 <!-- CHECKOUT -->
 <div class="page" id="page-checkout"><div class="co-page"><div class="container">
 <div class="co-progress"><span class="co-step done" id="bc-checkout-cart" style="cursor:pointer">Shopping Cart</span><span class="co-arrow">→</span><span class="co-step active">Checkout</span><span class="co-arrow">→</span><span class="co-step">Order Complete</span></div>
+<p style="font-size:13px;color:var(--muted);margin-bottom:12px">Have a coupon? <a id="coupon-lnk" style="color:var(--accent);text-decoration:underline;cursor:pointer">Click here to enter your code</a></p>
+<div id="coupon-panel" style="display:none;margin-bottom:20px"><div style="display:flex;gap:8px;max-width:400px"><input id="coupon-input" type="text" placeholder="Coupon code" style="flex:1;padding:10px 14px;border:1.5px solid var(--light);border-radius:var(--r);font-size:14px"><button id="coupon-apply" style="background:var(--ink);color:#fff;padding:10px 18px;border-radius:var(--r);font-size:13px;font-weight:600;white-space:nowrap">Apply</button></div><p id="coupon-msg" style="font-size:12px;margin-top:6px;color:var(--muted)"></p></div>
 <div id="checkout-form"><div class="co-grid"><div>
 <div class="co-section"><h2>Billing Details</h2>
 <div class="frow"><div class="fg"><label>First Name *</label><input type="text" id="co-fname" required></div><div class="fg"><label>Last Name *</label><input type="text" id="co-lname" required></div></div>
@@ -304,11 +306,12 @@ footer{background:var(--ink);color:#94a3b8;padding:72px 0 28px;margin-top:auto}
 <div class="frow"><div class="fg"><label>ZIP *</label><input type="text" id="co-zip" required></div><div class="fg"><label>Phone *</label><input type="tel" id="co-phone" required></div></div>
 <div class="fg"><label>Email *</label><input type="email" id="co-email" required></div>
 </div>
+<div class="co-section"><h2>Additional Information</h2><div class="fg"><label>Order Notes (optional)</label><textarea id="co-notes" rows="3" style="width:100%;padding:12px 14px;border:1.5px solid var(--light);border-radius:var(--r);font-size:14px;resize:vertical" placeholder="Notes about your order..."></textarea></div></div>
 <div class="co-section"><h2>Payment</h2>
 <div class="pay-box"><h3>💳 Credit / Debit Card</h3><div id="co-pay-logos" class="pay-logos" style="margin-bottom:16px"></div>
 <div class="fg"><label>Card Number</label><input type="text" id="cc-num" placeholder="1234 1234 1234 1234"></div>
 <div class="frow"><div class="fg"><label>Expiry</label><input type="text" id="cc-exp" placeholder="MM / YY"></div><div class="fg"><label>CVC</label><input type="text" placeholder="CVC"></div></div></div>
-<div class="tc-box"><input type="checkbox" id="tc-check" required><label for="tc-check">I am 18 years or older and agree to the <a id="tc-terms-lnk" style="color:var(--accent);text-decoration:underline">Terms &amp; Conditions</a> and <a id="tc-priv-lnk" style="color:var(--accent);text-decoration:underline">Privacy Policy</a> explaining that by placing an order, Product delivery is free (free S&amp;H), You will not be enrolled in any type of continuity program by ordering said option from this website. The charges will appear on your billing statement as <strong>PETSLOVE STORE</strong>. Delivery is via USPS and takes between 7 business days from the order processing date.</label></div>
+<div class="tc-box"><input type="checkbox" id="tc-check" required><label for="tc-check">I am 18 years or older and agree to the <a id="tc-terms-lnk" style="color:var(--accent);text-decoration:underline">Terms of Sale</a> and <a id="tc-priv-lnk" style="color:var(--accent);text-decoration:underline">Privacy Policy</a> explaining that by placing an order, Product delivery is free (free S&amp;H), You will not be enrolled in any type of continuity program by ordering said option from this website. The charges will appear on your billing statement as <strong>PETSLOVE STORE</strong>. Delivery is via USPS and takes between 7 business days from the order processing date.</label></div>
 <button class="place-btn" id="place-order-btn">🔒 Place Order →</button>
 <div class="co-note">The charges will appear on your billing statement as <strong>PETSLOVE STORE</strong>. For any question concerning your order or a question concerning one of our products do not hesitate to contact our customer service by email at <strong>support@petslove-staging.com</strong> or by filling our contact form. We're open Monday to Saturday, 9am–7pm EST.</div>
 </div></div>
@@ -327,42 +330,54 @@ footer{background:var(--ink);color:#94a3b8;padding:72px 0 28px;margin-top:auto}
 </div></div></div>
 
 <!-- PRIVACY -->
-<div class="page" id="page-privacy"><div class="legal-page"><div class="container"><div class="breadcrumb"><a id="bc-privacy-home">Home</a> › Privacy Policy</div><div class="legal">
+<div class="page" id="page-privacy"><div class="legal-page"><div class="container"><div class="breadcrumb"><a id="bc-privacy-home">Home</a> &rsaquo; Privacy Policy</div><div class="legal">
 <h1>Privacy Policy for PETSLOVE STORE LLC</h1>
-<p>(referred to hereafter as "the Website")</p>
-<p>Please note: The Website privacy policy changes from time to time and changes are effective upon posting. Please check back frequently for updates.</p>
+<p>(referred to hereafter as &ldquo;the Website&rdquo;)</p>
+<p>Please note: The Website privacy policy changes from time to time and changes are effective upon posting. Please check back frequently for updates as it is your sole responsibility to be aware of changes. The Website does not provide notices of changes in any manner other than by posting the changes at this web site.</p>
+<p>If you do not agree with the terms of this privacy policy please do not provide any information to the Website or use any of the services or products offered or provided on any of the websites referred to in this privacy policy.</p>
+<p>The information collection, use, and dissemination practices of the Website:</p>
+<p>This policy applies to the Website&rsquo;s collection, use, storage and disclosure of information by the Website on its (a) websites, including all its divisions, subsidiaries and related companies (collectively, &ldquo;the Websites&rdquo;), (b) on various third party websites, and (c) to the Website&rsquo;s other information collection, including the purchase of customer lists from third parties. The Website is not responsible for the information collection or privacy practices of third web sites or applications.</p>
 <h2>COLLECTION OF INFORMATION</h2>
-<p><strong>1.1 SURVEY INFORMATION</strong><br>The Website collects information from individuals by various methods, including surveys, order forms, or registration pages. Completing the Surveys is completely voluntary.</p>
-<p><strong>1.2 OTHER INFORMATION</strong><br>Other occasions when the Website obtains information include prize claims, customer service requests, and newsletter subscriptions.</p>
-<p><strong>1.3 COOKIES, WEB BEACONS, AND OTHER TECHNOLOGY</strong><br>The Website uses cookie and web beacon technology. Individuals need to accept cookies to use all features.</p>
-<p><strong>1.4 OUTSIDE INFORMATION</strong><br>The Website may receive information from third parties or public databases.</p>
-<p><strong>1.5 INDIVIDUAL INFORMATION</strong><br>Individual Information means all information the Website gathers or receives about individuals.</p>
-<p><strong>1.6 NO INFORMATION COLLECTED FROM CHILDREN</strong><br>The Website will never knowingly collect personal information about children under 13, in compliance with COPPA.</p>
-<p><strong>1.7 CREDIT CARD INFORMATION</strong><br>Credit Card Information is encrypted with SSL and used only for completing purchase transactions.</p>
+<p><strong>1.1 SURVEY INFORMATION</strong><br>The Website collects information from individuals by various methods, including, but not limited to, when an individual voluntarily completes a survey, order form, or a registration page either online or offline, or by means of online or offline surveys, order forms, or registration pages operated by third parties (collectively, a &ldquo;Survey&rdquo;). In the Surveys, the Website or a third party (a &ldquo;Third Party&rdquo;) may ask an individual to provide various information to the Website, which may include his or her name, email address, street address, zip code, telephone numbers (including cell phone numbers and carriers), birth date, gender, salary range, education and marital status, occupation, social security number, employment information, personal and online interests, and such other information as may be requested from time to time (together, &ldquo;Survey Information&rdquo;). Completing the Surveys is completely voluntary, and individuals are under no obligation to provide survey information to the Website or Third Party, but an individual may receive incentives from the Website or a Third Party in exchange for providing Survey Information to the Website.</p>
+<p><strong>1.2 OTHER INFORMATION</strong><br>Other occasions when the Website obtains information from individuals include (1) when an individual is making a claim for a prize or seeking to redeem an incentive offered by the Website or by a third party, (2) when an individual requests assistance through the Website&rsquo;s customer service department, and (3) when an individual voluntarily subscribes to a service or newsletter on the Website (together, &ldquo;Other Information&rdquo;).</p>
+<p><strong>1.3 COOKIES, WEB BEACONS, AND OTHER INFO COLLECTED USING TECHNOLOGY</strong><br>The Website currently uses cookie and web beacon technology to associate certain Internet-related information about an individual with information about the individual in our database. Additionally, the Website may use other new and evolving sources of information in the future (together, &ldquo;Technology Information&rdquo;).</p>
+<p><strong>(A) COOKIES</strong> &mdash; A cookie is a small amount of data stored on the hard drive of the individual&rsquo;s computer that allows the Website to identify the individual with his or her corresponding data that resides in the Website&rsquo;s database. Individuals who use the Websites need to accept cookies in order to use all of the features and functionality of the Websites.</p>
+<p><strong>(B) WEB BEACONS</strong> &mdash; A web beacon is programming code that can be used to display an image on a web page, but can also be used to transfer an individual&rsquo;s unique user identification (often in the form of a cookie) to a database and associate the individual with previously acquired information about an individual in a database. This allows the Website to track certain web sites an individual visits online. Web beacons are used to determine products or services an individual may be interested in, and to track online behavioral habits for marketing purposes.</p>
+<p><strong>(C) NEW TECHNOLOGY</strong> &mdash; The use of technology on the Internet, including cookies and web beacons, is rapidly evolving, as is the Website&rsquo;s use of new and evolving technology. As a result, the Website strongly encourages individuals to revisit this policy for any updates regarding its use of technology.</p>
+<p><strong>1.4 OUTSIDE INFORMATION</strong><br>The Website may receive information about individuals from third parties or from other sources of information outside of the Website including information located in public databases (&ldquo;Outside Information&rdquo;).</p>
+<p><strong>1.5 INDIVIDUAL INFORMATION</strong><br>As used herein, Individual Information means Survey Information, Third Party List Information, Other Information, Technology Information, and Outside Information, and any other information the Website gathers or receives about individuals.</p>
+<p><strong>1.6 NO INFORMATION COLLECTED FROM CHILDREN</strong><br>The Website will never knowingly collect any personal information about children under the age of 13. If the Website obtains actual knowledge that it has collected personal information about a child under the age of 13, that information will be immediately deleted from our database. Because it does not collect such information, the Website has no such information to use or to disclose to third parties. The Website has designed this policy in order to comply with the Children&rsquo;s Online Privacy Protection Act (&ldquo;COPPA&rdquo;).</p>
+<p><strong>1.7 CREDIT CARD INFORMATION</strong><br>The Website may in certain cases collect credit card numbers and related information, such as the expiration date of the card (&ldquo;Credit Card Information&rdquo;) when an individual places an order from the Website. When the Credit Card Information is submitted to the Website, such information is encrypted and is protected with SSL encryption software. The Website will use the Credit Card Information for purposes of processing and completing the purchase transaction, and the Credit Card Information will be disclosed to third parties only as necessary to complete the purchase transaction.</p>
 <h2>USE OF INDIVIDUAL INFORMATION</h2>
-<p><strong>2.1</strong> The company may use individual information for any legally permissible purpose. We do not sell or share customer information.</p>
-<p><strong>2.2 EMAIL</strong><br>Used for promotional offers. Unsubscribe via instructions in each email.</p>
-<p><strong>2.3 TARGETED ADVERTISING</strong><br>The Website may target advertising using Individual Information.</p>
-<p><strong>2.4 TECHNOLOGY INFORMATION</strong><br>Used for profiles, tracking browsing habits, and analyzing site usage.</p>
-<p><strong>2.5 STORAGE</strong><br>Stored securely with firewall protection.</p>
-<h2>DISSEMINATION</h2>
-<p><strong>3.1 ORDER FULFILLMENT</strong><br>Transferred to third parties for product delivery.</p>
-<p><strong>3.2 LEGAL PROCESS</strong><br>May be disclosed for subpoenas and court orders.</p>
-<p><strong>3.3</strong> We do not sell or share customer information.</p>
-<p><strong>3.4 ACCESS</strong><br>Individuals can correct or delete their information by contacting customer service.</p>
-<h2>THIRD PARTY PRACTICES</h2>
-<p>Advertisers may use their own cookies. The Website is not responsible for third party privacy practices.</p>
-<h2>UNSUBSCRIBE</h2>
-<p>Contact customer service to discontinue emails. Visit www.ftc.gov for privacy protection info.</p>
-<h2>CONTACT</h2>
-<p><strong>PETSLOVE STORE LLC</strong><br>1209 MOUNTAIN ROAD PL NE STE N, ALBUQUERQUE, NM 87110<br>Phone: +1 (833) 323-2668<br>Email: support@petslove-staging.com</p>
+<p><strong>2.1 DISCRETION TO USE INFORMATION</strong><br>The company may use individual information for any legally permissible purpose at company&rsquo;s sole discretion. We do not sell or share any of our customer&rsquo;s information.</p>
+<p><strong>2.2 EMAIL</strong><br>The Website uses Individual Information to provide promotional offers by email to individuals. The Website may maintain separate email lists for different purposes. If email recipients wish to end their email subscription from a particular list, they need to follow the instructions at the end of each email message to unsubscribe from the particular list.</p>
+<p><strong>2.3 TARGETED ADVERTISING</strong><br>The Website uses Individual Information to target advertising to an individual. The Website may, at its discretion, target advertising by using email, direct mail, cell phones, and other means of communication to provide promotional offers.</p>
+<p><strong>2.4 USE OF TECHNOLOGY INFORMATION</strong><br>The Website uses Technology Information (1) to match a person&rsquo;s Survey Information to other categories of Individual Information to make and improve profiles of individuals, (2) to track a person&rsquo;s online browsing habits on the Internet, (3) to determine which areas of the Website&rsquo;s web sites are most frequently visited.</p>
+<p><strong>2.5 PROFILES OF INDIVIDUALS</strong><br>The Website uses Individual Information to make a profile of an individual. A profile can be created by combining Survey Information and Third Party List Information with other sources of Individual Information such as information obtained from public databases.</p>
+<p><strong>2.6 STORAGE OF INDIVIDUAL INFORMATION</strong><br>The Website stores the Individual Information in a database on the Website&rsquo;s computers. Our computers have security measures (such as a firewall) in place to protect against the loss, misuse, and alteration of the information under the Website&rsquo;s control.</p>
+<h2>DISSEMINATION OF INDIVIDUAL INFORMATION</h2>
+<p><strong>3.1 ORDER FULFILLMENT</strong><br>The Website will transfer Individual Information to third parties when necessary to provide a product or service that a person orders from such third party while using the Website or when responding to offers provided by the Website.</p>
+<p><strong>3.2 LEGAL PROCESS</strong><br>The Website may disclose Individual Information to respond to subpoenas, court orders, and other legal processes.</p>
+<p><strong>3.3 SUMMARY DATA</strong><br>We do not sell or share any of our customer&rsquo;s information.</p>
+<p><strong>3.4 ACCESS</strong><br>Individuals have access to their Individual Information collected to provide an opportunity for an individual to correct, amend, or delete such information. Access can be obtained by contacting customer service using the information at the bottom of this document.</p>
+<h2>PRIVACY PRACTICES OF THIRD PARTIES</h2>
+<p><strong>4.1 ADVERTISER COOKIES AND WEB BEACONS</strong><br>Advertising agencies, advertising networks, and other companies who place advertisements on the Websites and on the Internet generally may use their own cookies, web beacons, and other technology to collect information about individuals. The Website does not control Advertisers&rsquo; use of such technology.</p>
+<p><strong>4.2 LINKS</strong><br>The Websites and email messages sometimes contain hypertext links to the web sites of third parties. The Website is not responsible for the privacy practices or the content of such other web sites.</p>
+<h2>UNSUBSCRIBE PROCEDURES</h2>
+<p>If you wish to discontinue receiving email messages from the Website please inform us by contacting customer service using the information at the bottom of this document.</p>
+<p>We reserve the right to add Individual Information to multiple lists maintained by the Website.</p>
+<p>For more information about protecting your privacy, you may wish to visit: <strong>www.ftc.gov</strong></p>
+<h2>COMPANY ADDRESS</h2>
+<p><strong>PETSLOVE STORE LLC</strong><br>1209 MOUNTAIN ROAD PL NE STE N, ALBUQUERQUE, NM 87110<br>Support Telephone: +1 (833) 323-2668<br>Support Email: support@petslove-staging.com</p>
 </div></div></div></div>
 
 <!-- TERMS -->
-<div class="page" id="page-terms"><div class="legal-page"><div class="container"><div class="breadcrumb"><a id="bc-terms-home">Home</a> › Terms &amp; Conditions</div><div class="legal">
-<h1>Terms &amp; Conditions</h1>
+<div class="page" id="page-terms"><div class="legal-page"><div class="container"><div class="breadcrumb"><a id="bc-terms-home">Home</a> &rsaquo; Terms of Sale</div><div class="legal">
+<h1>Terms of Sale</h1>
 <h2>USER AGREEMENT</h2>
-<p>You must read and agree to these Terms before ordering from <strong>PETSLOVE STORE LLC</strong>. By placing an order, You agree to be bound by the following Terms.</p>
+<p>You must read and agree to these Terms and Conditions before ordering from <strong>PETSLOVE STORE LLC</strong>. By placing an order for PETSLOVE STORE LLC products, You agree to be bound by the following Terms and Conditions:</p>
+<h2>ATTENTION</h2>
+<p>This is a binding agreement between You, the person or entity agreeing to the terms contained in this document (&ldquo;I&rdquo;, &ldquo;You&rdquo;, &ldquo;Your&rdquo; or &ldquo;Customer&rdquo;), and PETSLOVE STORE LLC, the owner and administrator of this Website and all content and functionality contained herein (&ldquo;Our&rdquo;, &ldquo;Us&rdquo;, or &ldquo;Company&rdquo;) (collectively, the &ldquo;Parties&rdquo; or &ldquo;We&rdquo;). These terms and conditions govern Your use of and access to this Website and any and all of its sub-pages (collectively, the &ldquo;Website&rdquo;).</p>
 <h2>AVAILABLE PRODUCTS</h2>
 <table><tr><th>Product</th><th>Price</th></tr>
 <tr><td>Slow Feeder Dog Bowl</td><td>$7.99</td></tr>
@@ -374,22 +389,36 @@ footer{background:var(--ink);color:#94a3b8;padding:72px 0 28px;margin-top:auto}
 <tr><td>Automatic Laser Cat Toy</td><td>$49.99</td></tr>
 <tr><td>GPS Pet Tracker Collar Attachment</td><td>$59.99</td></tr>
 </table>
-<p>Terms: One-time purchase. Order confirmation sent by email.</p>
-<h2>SHIPPING</h2><p>Free shipping via USPS. Delivery in 7-10 business days.</p>
-<h2>ACCEPTANCE OF TERMS</h2><p>By using the Website, You accept these Terms. If You disagree, exit immediately.</p>
-<h2>CREDIT CARD DESCRIPTOR</h2><p>Charges appear as <strong>PETSLOVE STORE</strong> on your statement.</p>
-<h2>DELIVERY COST</h2><p>Free worldwide (free S&amp;H). Tracking sent by email. Ships within 7 days via USPS.</p>
-<h2>REFUND POLICY</h2><p>We refund fraud and unauthorized transactions. Call +1 (833) 323-2668. Returns within 30 days with RMA number. Refunds issued within 3 business days.</p>
-<h2>RETURN POLICY</h2><p>Contact customer service for RMA number. Ship to:</p>
-<p><strong>Fulfillment Box USA</strong><br>Attn: 11815 Technology Ln #300, Fishers, IN 46038<br>Email: usindiana@fulfillment-box.com</p>
-<h2>SHIPPING TERMS</h2><p>Ships within 7 days via USPS. No shipments on weekends or holidays. PETSLOVE STORE LLC does not guarantee arrival dates.</p>
-<p>Customer Care: +1 (833) 323-2668</p>
-<h2>LIMITATION OF LIABILITY</h2><p>PRODUCTS ARE PROVIDED "AS IS" WITHOUT WARRANTIES. PETSLOVE STORE LLC SHALL NOT BE LIABLE FOR INDIRECT, SPECIAL, OR CONSEQUENTIAL DAMAGES. TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT PAID FOR THE PRODUCTS.</p>
-<h2>MODIFICATIONS</h2><p>PETSLOVE STORE LLC may update these Terms at any time.</p>
-<h2>GOVERNING LAW</h2><p>Governed by the laws of the State of Michigan. Disputes subject to courts in Detroit, Michigan.</p>
-<h2>SEVERABILITY</h2><p>Invalid provisions do not affect remaining terms.</p>
-<h2>CONTACT</h2>
-<p>PETSLOVE STORE LLC<br>1209 MOUNTAIN ROAD PL NE STE N, ALBUQUERQUE, NM 87110<br>Email: support@petslove-staging.com<br>Phone: +1 (833) 323-2668</p>
+<p>Terms: One-time purchase. You will receive an order confirmation by email after each purchase.</p>
+<h2>SHIPPING</h2>
+<p>We ship all our products via USPS. Delivery times are 7 to 10 business days from the order processing date. You will receive a tracking number by email once your order has been shipped.</p>
+<h2>ACCEPTANCE OF TERMS OF USE</h2>
+<p>By using, visiting, or browsing the Website, as well as placing an order with PETSLOVE STORE LLC through the Website, You accept, without limitation or qualification, these Terms of Use and agree, without limitation, to the terms of Our Privacy Statement. If You do not agree to be bound by these Terms of Use and Privacy Statement, You should exit the Website immediately.</p>
+<p>These Terms of Use constitute the entire agreement between PETSLOVE STORE LLC and You, and supersede all prior or contemporaneous agreements. You manifest Your agreement to the Terms by any act demonstrating Your assent thereto, including clicking any button containing the words &ldquo;I Agree&rdquo;; &ldquo;Place My Order&rdquo;; &ldquo;Submit&rdquo; or similar syntax, or by merely accessing the Website.</p>
+<h2>CREDIT CARD DESCRIPTOR</h2>
+<p>By ordering products from us, you authorize us to charge your credit card accordingly (once). This authorization will be automatically removed once the order is completed. Please note that the descriptor that appears on your credit card statement will appear as <strong>PETSLOVE STORE</strong>. If you have any questions regarding your credit card statement, you should call our customer service department.</p>
+<h2>DELIVERY COST</h2>
+<p>Deliveries are free worldwide (free S&amp;H). Shipments are tracked, and the tracking number is sent by email to each order as soon as it is shipped. Shipping within 7 days with USPS.</p>
+<h2>REFUND POLICY</h2>
+<p>We refund all cases of fraud and unauthorized transactions, including shipping and handling charges. Call +1 (833) 323-2668 to obtain a refund. Additional refunds are issued at the discretion of the company. Customers are restricted to receiving a single refund per product ordered. Repetitive refunds are not permitted unless the product, as delivered to you, is defective. We reserve the right to refuse a refund to any customer who repeatedly requests refunds or who, in our judgment, requests refunds in bad faith. In order to process your refund, you must supply us with your name and delivery address. If you provide us with insufficient or incorrect information your refund will be delayed. We will credit any returned opened or unopened product if the received package is post marked within 30 days of the order received date and included with a RMA number obtained from customer service. Refunds will be issued to customer credit card within 3 business days. No returns are credited after 30 days of the received date. Any merchandise must be returned at the customer&rsquo;s expense and must have an RMA number marked on it. No returns are credited if they are not accompanied by an RMA number.</p>
+<h2>RETURN POLICY</h2>
+<p>To obtain your refund, contact customer service by phone and obtain an RMA (Return Merchandise Authorization) number to place on your package. Write this number on the outside of the shipping package, and send the product, whether opened or unopened, back to our fulfillment center at the address listed below within 30 days from receipt of the order. In order for your refund to be processed, the product must arrive at our fulfillment facility within 30 days from receipt of the order. You pay for return shipping. This fee will be deducted from the issued refund. Once our fulfillment center has received the package and relayed the correct information to us, you will be issued a refund. Your refund will be credited back to your bank account and may take up to 10 business days to show on your statement, depending on the processing speed of the bank.</p>
+<p><strong>Return Address:</strong><br>Fulfillment Box USA<br>Attn: 11815 Technology Ln #300 Fishers, IN 46038<br>Email: usindiana@fulfillment-box.com</p>
+<h2>SHIPPING TERMS</h2>
+<p>If you ordered the One Time Supply, you will be shipped the amount of the product you ordered. Shipping within 7 days with USPS. Please be advised that shipments are not sent on Saturdays, Sundays, or any Holidays. PETSLOVE STORE LLC does not guarantee specific arrival dates or times. PETSLOVE STORE LLC does not refund or credit delivery or processing charges for any shipments via USPS.</p>
+<p>Contacting Customer Care / Billing: You may contact our customer care department by using our toll-free phone number. Toll Free Customer Care phone: +1 (833) 323-2668</p>
+<h2>LIMITATION OF LIABILITY AND DISCLAIMER OF WARRANTY</h2>
+<p>THE MATERIALS AND PRODUCTS CONTAINED AND OFFERED ON THE WEBSITE ARE PROVIDED &ldquo;AS IS&rdquo; AND WITHOUT WARRANTIES OF ANY KIND EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, PETSLOVE STORE LLC DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR OTHER VIOLATIONS OF RIGHTS. IN NO EVENT SHALL PETSLOVE STORE LLC OR ITS OFFICERS, DIRECTORS, SHAREHOLDERS, EMPLOYEES, INDEPENDENT CONTRACTORS, TELECOMMUNICATIONS PROVIDERS, AND AGENTS BE LIABLE FOR ANY INDIRECT, SPECIAL, INCIDENTAL, EXEMPLARY, CONSEQUENTIAL, OR PUNITIVE DAMAGES. IN THE EVENT THAT PETSLOVE STORE LLC IS FOUND LIABLE FOR ANY DAMAGES, PETSLOVE STORE LLC&rsquo;S TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT PAID BY THE CUSTOMER FOR THE PRODUCTS GIVING RISE TO THE CLAIM.</p>
+<p>PETSLOVE STORE LLC MAKES NO REPRESENTATIONS OR WARRANTIES THAT THE MATERIALS, INFORMATION, OR CONTENT ON THIS WEBSITE WILL BE TIMELY, SECURE, ERROR-FREE, OR UNINTERRUPTED, OR THAT DEFECTS WILL BE CORRECTED.</p>
+<h2>MODIFICATIONS TO THE TERMS OF USE</h2>
+<p>PETSLOVE STORE LLC reserves the right to change or update these Terms of Use at any time. Any changes or updates will be effective immediately upon posting to the Website. Your continued use of the Website following the posting of changes or updates constitutes Your acceptance of such changes or updates.</p>
+<h2>GOVERNING LAW</h2>
+<p>These Terms of Use shall be governed by and construed in accordance with the laws of the State of Michigan, without regard to its conflict of law principles. Any disputes arising out of or related to these Terms of Use or Your use of the Website shall be subject to the exclusive jurisdiction of the state and federal courts located in Detroit, Michigan.</p>
+<h2>SEVERABILITY</h2>
+<p>If any provision of these Terms of Use is found to be invalid, illegal, or unenforceable, the remaining provisions shall remain in full force and effect.</p>
+<h2>CONTACT INFORMATION</h2>
+<p>For any questions or concerns regarding these Terms of Use, please contact PETSLOVE STORE LLC Customer Service at:</p>
+<p>Address: 1209 MOUNTAIN ROAD PL NE STE N, ALBUQUERQUE, NM 87110<br>Email: support@petslove-staging.com<br>Phone: +1 (833) 323-2668</p>
 <p>Thank you for shopping with PETSLOVE STORE LLC</p>
 </div></div></div></div>
 
@@ -398,7 +427,7 @@ footer{background:var(--ink);color:#94a3b8;padding:72px 0 28px;margin-top:auto}
 <div class="ft-grid">
 <div class="ft-col"><div class="ft-brand"><div class="ft-brand-icon">🐾</div> PetsLove</div><p class="ft-desc">Premium pet accessories for happy, healthy pets. Trusted by pet owners worldwide.</p><div class="ft-pay" id="footer-pay"></div></div>
 <div class="ft-col"><h3>Shop</h3><a id="fl-home">Home</a><a id="fl-shop">Shop</a><a id="fl-contact">Contact</a></div>
-<div class="ft-col"><h3>Legal</h3><a id="fl-privacy">Privacy Policy</a><a id="fl-terms">Terms &amp; Conditions</a></div>
+<div class="ft-col"><h3>Legal</h3><a id="fl-privacy">Privacy Policy</a><a id="fl-terms">Terms of Sale</a></div>
 <div class="ft-col"><h3>Contact</h3><p style="font-size:13px;margin-bottom:6px">+1 (833) 323-2668</p><p style="font-size:13px;margin-bottom:6px">support@petslove-staging.com</p><p style="font-size:13px;line-height:1.5">1209 MOUNTAIN ROAD PL NE STE N<br>ALBUQUERQUE, NM 87110</p></div>
 </div>
 <div class="ft-bottom">© 2026 PETSLOVE STORE LLC — Ships within 7 days via USPS</div>
@@ -421,7 +450,7 @@ var products=[
   {id:8,tag:'comfort',cat:'Comfort',name:'GPS Pet Tracker Collar Attachment',price:59.99,old:null,badge:null,bc:'',rating:4.6,rev:1567,fb:'📍',imgs:[C+'m.media-amazon.com/images/I/61AqG0+8SQL._AC_SL1500_.jpg'],desc:{b:['Real-time GPS tracking','Waterproof IP67','10-day battery life','Fits any collar'],s:['GPS: Real-time','Waterproof: IP67','Battery: 10 days','Weight: 1oz'],i:['1x GPS Tracker','1x USB charger'],p:['Outdoor dogs','Escape artists','Peace of mind','Multi-pet tracking']}}
 ];
 
-var PAY_HTML='<img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Pay" height="22" style="margin-right:6px;filter:invert(1)"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="Google Pay" height="22" style="margin-right:6px"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" height="22" style="margin-right:6px"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" height="22" style="margin-right:6px"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Discover_Card_logo.svg" alt="Discover" height="22">';
+var PAY_HTML=['<svg viewBox="0 0 68 38" xmlns="http://www.w3.org/2000/svg" style="height:24px;border-radius:4px"><rect width="68" height="38" rx="4" fill="#000"/><text x="34" y="24" text-anchor="middle" fill="#fff" font-size="12" font-family="Arial">Apple Pay</text></svg>','<svg viewBox="0 0 68 38" xmlns="http://www.w3.org/2000/svg" style="height:24px;border-radius:4px"><rect width="68" height="38" rx="4" fill="#fff" stroke="#ddd"/><text x="34" y="24" text-anchor="middle" font-size="13" font-family="Arial"><tspan fill="#4285F4">G</tspan><tspan fill="#555">Pay</tspan></text></svg>','<svg viewBox="0 0 60 38" xmlns="http://www.w3.org/2000/svg" style="height:24px;border-radius:4px"><rect width="60" height="38" rx="4" fill="#1A1F71"/><text x="30" y="25" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold" font-style="italic" font-family="Georgia">VISA</text></svg>','<svg viewBox="0 0 60 38" xmlns="http://www.w3.org/2000/svg" style="height:24px;border-radius:4px"><rect width="60" height="38" rx="4" fill="#fff" stroke="#ddd"/><circle cx="23" cy="19" r="11" fill="#EB001B"/><circle cx="37" cy="19" r="11" fill="#F79E1B"/><ellipse cx="30" cy="19" rx="4" ry="11" fill="#FF5F00"/></svg>'].join('');
 
 var cart=[],curProd=null,detQty=1;
 function $(id){return document.getElementById(id)}
@@ -541,6 +570,8 @@ function wire(){
   var qm=$('qty-minus');if(qm)qm.onclick=function(){if(detQty>1){detQty--;var q=$('det-qty');if(q)q.value=detQty}};
   var qp=$('qty-plus');if(qp)qp.onclick=function(){detQty++;var q=$('det-qty');if(q)q.value=detQty};
   var pa=$('pd-add-btn');if(pa)pa.onclick=addCartDetail;
+  var cl=$('coupon-lnk');if(cl)cl.onclick=function(){var p=$('coupon-panel');if(p)p.style.display=p.style.display==='none'?'block':'none'};
+  var ca=$('coupon-apply');if(ca)ca.onclick=function(){var m=$('coupon-msg');if(m)m.textContent='Invalid coupon code.';m.style.color='#dc2626'};
   var fpay=$('footer-pay');if(fpay)fpay.innerHTML=PAY_HTML;
 }
 var pills=document.querySelectorAll('#filter-pills button');
