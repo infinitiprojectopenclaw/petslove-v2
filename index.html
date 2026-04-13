@@ -98,7 +98,7 @@ header.scrolled{box-shadow:0 1px 16px rgba(0,0,0,.06)}
 .pcard-body{padding:16px 18px 20px}
 .pcard-cat{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);font-weight:700;margin-bottom:4px}
 .pcard-name{font-weight:600;font-size:14px;margin-bottom:6px;line-height:1.35;min-height:2.7em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pcard-stars{font-size:12px;color:#f59e0b;margin-bottom:10px}.pcard-stars small{color:var(--muted)}
+
 .pcard-foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .pcard-price{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700}
 .pcard-add{background:var(--accent);color:#fff;padding:8px 16px;border-radius:50px;font-size:12px;font-weight:600;transition:all .2s;white-space:nowrap}
@@ -123,8 +123,7 @@ header.scrolled{box-shadow:0 1px 16px rgba(0,0,0,.06)}
 .pd-thumb img{width:100%;height:100%;object-fit:cover}
 .pd-cat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:6px}
 .pd-name{font-family:'Libre Baskerville',serif;font-size:28px;line-height:1.2;margin-bottom:12px}
-.pd-stars{color:#f59e0b;margin-bottom:16px;font-size:13px;display:flex;align-items:center;gap:6px}
-.pd-stars small{color:var(--muted)}
+
 .pd-price{font-family:'Libre Baskerville',serif;font-size:34px;font-weight:700;margin-bottom:4px}
 .pay-logos{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
 .pay-logos img{height:22px;opacity:.5;transition:opacity .2s}.pay-logos img:hover{opacity:1}
@@ -272,7 +271,6 @@ footer{background:var(--ink);color:#94a3b8;padding:72px 0 28px;margin-top:auto}
 <div class="pd-img-col"><div class="pd-main" id="pd-main-wrap"><img id="pd-main" loading="lazy"></div><div class="pd-thumbs" id="pd-thumbs"></div></div>
 <div>
 <div class="pd-cat" id="pd-cat"></div><div class="pd-name" id="pd-name"></div>
-<div class="pd-stars" id="pd-rating"></div>
 <div class="pd-price" id="pd-price"></div>
 <div class="pay-logos" id="pd-pay-logos"></div>
 <div class="pd-ship">📦 Free shipping — Ships within 7 days via USPS</div>
@@ -471,7 +469,7 @@ function renderGrid(gridId,ids){
     var p=getP(id);if(!p)return;
     var card=document.createElement('div');card.className='pcard';
     card.onclick=function(){goTo('product',p.id)};
-    card.innerHTML='<div class="pcard-img"><img src="'+p.imgs[0]+'" loading="lazy"></div><div class="pcard-body"><div class="pcard-cat">'+p.cat+'</div><div class="pcard-name">'+p.name+'</div><div class="pcard-stars">\u2B50 '+p.rating+' <small>('+p.rev+')</small></div><div class="pcard-foot"><div class="pcard-price">$'+p.price.toFixed(2)+'</div></div></div>';
+    card.innerHTML='<div class="pcard-img"><img src="'+p.imgs[0]+'" loading="lazy"></div><div class="pcard-body"><div class="pcard-cat">'+p.cat+'</div><div class="pcard-name">'+p.name+'</div><div class="pcard-foot"><div class="pcard-price">$'+p.price.toFixed(2)+'</div></div></div>';
     var btn=document.createElement('button');btn.className='pcard-add';btn.textContent='Add to Cart';
     btn.onclick=function(e){e.stopPropagation();addCart(p.id);btn.textContent='\u2713 Added';btn.classList.add('added');setTimeout(function(){btn.textContent='Add to Cart';btn.classList.remove('added')},1200)};
     card.querySelector('.pcard-foot').appendChild(btn);el.appendChild(card)})
@@ -481,7 +479,7 @@ function renderPD(p){
   var cat=$('pd-cat');if(cat)cat.textContent=p.cat;
   var nm=$('pd-name');if(nm)nm.textContent=p.name;
   var pr=$('pd-price');if(pr)pr.textContent='$'+p.price.toFixed(2)+' USD';
-  var rt=$('pd-rating');if(rt)rt.innerHTML='\u2B50 '+p.rating+' <small>('+p.rev+' reviews)</small>';
+  
   var img=$('pd-main');if(img)img.src=p.imgs[0];
   var pay=$('pd-pay-logos');if(pay)pay.innerHTML=PAY_HTML;
   var desc=$('pd-desc');if(desc)desc.innerHTML='<h3>'+p.fb+' Benefits</h3><ul>'+p.desc.b.map(function(i){return'<li>'+i+'</li>'}).join('')+'</ul><h3>Specifications</h3><ul>'+p.desc.s.map(function(i){return'<li>'+i+'</li>'}).join('')+'</ul><h3>Package Includes</h3><ul>'+p.desc.i.map(function(i){return'<li>'+i+'</li>'}).join('')+'</ul><h3>Perfect For</h3><ul>'+p.desc.p.map(function(i){return'<li>'+i+'</li>'}).join('')+'</ul>';
